@@ -1,0 +1,23 @@
+<header class="flex justify-between p-2 h-[50px] border-0
+    border-b border-solid border-b-gray-300 text-center">
+  <div class="flex items-center gap-2">
+    <mat-icon class="text-emerald-500 text-5xl !w-[45px] !h-[45px]"
+              fontIcon="description"/>
+    <h1 class="!text-3xl !m-0 select-none">My Notes</h1>
+  </div>
+  <div #profilePic class="rounded-full w-[45px] h-[45px]
+        bg-contain cursor-pointer item
+        border border-gray-300 border-solid"
+        (click)="$event.stopPropagation(); isMenuVisible = true">
+  </div>
+</header>
+<div *ngIf="isMenuVisible" (click)="$event.stopPropagation()"
+     class="border border-solid border-gray-300
+      flex flex-col w-[250px] rounded-b p-2 gap-4
+      text-center fixed right-0">
+  <div>
+    <strong> {{ authService.getPrinciple()?.displayName }} </strong>
+    <div>{{ authService.getPrincipalEmail() }}</div>
+  </div>
+  <button mat-stroked-button (click)="authService.signOut()">Sign-out</button>
+</div>

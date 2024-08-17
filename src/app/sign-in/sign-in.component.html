@@ -1,0 +1,17 @@
+<div class="h-dvh flex justify-center items-center">
+  <section class="border border-solid border-gray-300
+        rounded text-center p-9">
+    <h1 class="!text-4xl">My-Notes</h1>
+    <div class="mb-3">Welcome to angular My-Notes-App. <br>
+      Please sign in to continue.</div>
+    <div class="grid gap-2">
+       <button (click)="authService.signIn()" mat-stroked-button>
+         Sign in with Google
+       </button>
+       <button (click)="authService.signIn()"
+            class="!text-black" mat-stroked-button>
+         Sign in with GitHub
+       </button>
+    </div>
+  </section>
+</div>
