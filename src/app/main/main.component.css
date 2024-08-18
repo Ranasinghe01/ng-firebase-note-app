@@ -40,3 +40,49 @@
   }
 }
 
+
+/*default size*/
+.card-1-size {
+  width: 280px !important;
+  height: 140px !important;
+}
+
+/*default size*/
+.card-2-size {
+  height: 160px !important;
+  width: 280px !important;
+}
+
+
+/*media queries*/
+
+@media (device-width: 768px) {
+  .card-1-size {
+    width: 725px !important;
+    height: 80px !important;
+  }
+}
+
+@media (device-width: 768px) {
+  .card-2-size {
+    width: 225px !important;
+    height: 170px !important;
+  }
+}
+
+@media (device-width: 480px) {
+
+  .card-1-size {
+    width: 435px !important;
+    height: 100px !important;
+  }
+
+  .card-2-size {
+    width: 435px !important;
+    height: 140px !important;
+  }
+}
+
+
+
+

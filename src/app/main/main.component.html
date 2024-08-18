@@ -2,7 +2,7 @@
 
 <div class="flex p-6 gap-5 items-center flex-wrap ">
   <div routerLink="create-note" routerLinkActive="active">
-    <mat-card class="!h-[140px] !w-[140px] hover:bg-emerald-50
+    <mat-card class="card-1-size hover:bg-emerald-50
     justify-center text-center !text-gray-500
     !text-2xl cursor-pointer select-none"
               appearance="outlined">
@@ -10,7 +10,7 @@
     </mat-card>
   </div>
   @for(task of taskArray; track task._id) {
-  <mat-card class="h-[160px] w-[300px]
+  <mat-card class="card-2-size
                      !bg-blue-50
                      hover:bg-gray-200" appearance="outlined">
     <div class="cursor-pointer hover:underline"

@@ -1,0 +1,22 @@
+
+/*default size*/
+.text-area-size {
+  width: 1800px !important;
+  height: 765px !important;
+}
+
+/*media queries*/
+
+@media(device-width: 768px) {
+  .text-area-size {
+    width: 750px !important;
+    height: 765px !important;
+  }
+}
+
+@media (device-width: 480px) {
+  .text-area-size {
+    width: 460px !important;
+    height: 765px !important;
+  }
+}

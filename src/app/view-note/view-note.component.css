@@ -20,3 +20,25 @@
   95%,
   100%  {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
 }
+
+/*default size*/
+.card-size {
+  width: 1770px !important;
+  height: 900px !important;
+  margin-bottom: 0 !important;
+}
+
+/*media quires*/
+
+@media (device-width: 768px) {
+  .card-size {
+    width: 690px !important;
+  }
+}
+
+@media (device-width: 480px) {
+  .card-size {
+    width: 400px !important;
+  }
+}
+
