@@ -62,6 +62,14 @@ export class MainComponent {
         formattedDate: task.timestamp.toDate()
       }));
       this.isLoading = false;
+      //get sorting task list
+      this.taskArray.sort((task1: Task, task2: Task) => {
+        if (task1.timestamp.toMillis() < task2.timestamp.toMillis()) return 1
+        else if (task1.timestamp.toMillis() === task2.timestamp.toMillis()) return 0;
+        else {
+          return -1;
+        }
+      });
     });
   }
 

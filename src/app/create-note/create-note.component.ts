@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {NgIf} from "@angular/common";
-import {Task, TaskService} from "../service/task.service";
+import {Location, NgIf} from "@angular/common";
+import {TaskService} from "../service/task.service";
 import {AuthService} from "../service/auth.service";
 import {FormsModule} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
@@ -38,7 +38,12 @@ export class CreateNoteComponent {
 
   constructor(private taskService: TaskService,
               private route: ActivatedRoute,
+              private location: Location ,
               private authService: AuthService) {
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   async saveOrUpdateNote(txtTitle: HTMLInputElement, txtArea: HTMLTextAreaElement){

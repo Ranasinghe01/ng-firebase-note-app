@@ -11,7 +11,8 @@ import {MatChip, MatChipSet} from "@angular/material/chips";
 import {Task, TaskService} from "../service/task.service";
 import {AuthService} from "../service/auth.service";
 import {ActivatedRoute} from "@angular/router";
-import {DatePipe, NgIf} from "@angular/common";
+import {DatePipe, Location, NgIf} from "@angular/common";
+import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-view-note',
@@ -26,7 +27,8 @@ import {DatePipe, NgIf} from "@angular/common";
     MatChip,
     MatCardSubtitle,
     DatePipe,
-    NgIf
+    NgIf,
+    MatButton
   ],
   templateUrl: './view-note.component.html',
   styleUrl: './view-note.component.css',
@@ -38,7 +40,12 @@ export class ViewNoteComponent implements OnInit{
 
   constructor(private authService: AuthService,
               private route: ActivatedRoute,
+              private location: Location,
               protected taskService: TaskService) {
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngOnInit(): void {

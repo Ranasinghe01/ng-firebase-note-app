@@ -14,7 +14,7 @@
     </textarea>
   </mat-form-field>
   <div class="flex justify-end gap-2">
-    <button mat-stroked-button class="!text-black">BACK</button>
+    <button mat-stroked-button class="!text-black" (click)="goBack()">BACK</button>
     <button mat-flat-button (click)="saveOrUpdateNote(txtTitle, txtArea)">
         {{ isUpdateMode ? 'UPDATE' : 'SAVE' }}
     </button>
