@@ -5,8 +5,13 @@
   height: 765px !important;
 }
 
-/*media queries*/
+.progress-bar {
+  height: 5px;
+  background-color: darkseagreen;
+  border-radius: 80%;
+}
 
+/*media queries*/
 @media(device-width: 768px) {
   .text-area-size {
     width: 750px !important;

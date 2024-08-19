@@ -19,6 +19,7 @@ export class UpdateNoteComponent implements OnInit{
 
   taskId: string | null = null;
   task: Task | undefined;
+  progress: number = 0;
 
   constructor(protected taskService: TaskService,
               private route: ActivatedRoute,
@@ -37,17 +38,31 @@ export class UpdateNoteComponent implements OnInit{
   }
 
   private loadTask(taskId: string) {
+    this.progress = 2;
     const userEmail = this.authService.getPrinciple()?.email;
     if (userEmail) {
       this.taskService.getTaskById(userEmail, taskId)
         .subscribe( {
           next: (task) => {
-            this.task = task;
+            if (task) {
+              this.progress = 100;
+              this.task = task;
+            }else {
+              this.progress = 0;
+              console.log("Task not found");
+            }
           },
           error: (error) => {
             console.log("Error loading task: ", error);
           }
       });
+      const calProgress = setInterval(() => {
+        if (this.progress < 99) {
+          this.progress += 1;
+        }else {
+          clearInterval(calProgress);
+        }
+      }, 10);
     }
   }
 }

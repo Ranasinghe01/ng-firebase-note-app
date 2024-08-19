@@ -1,3 +1,15 @@
+<div *ngIf="progress > 0 && progress < 100">
+  <div class="progress-bar" [style.width.%]="progress"></div>
+</div>
+
+<div *ngIf="saveProgress > 0 && saveProgress < 100">
+  <div class="progress-bar" [style.width.%]="saveProgress"></div>
+</div>
+
+<div *ngIf="updateProgress > 0 && updateProgress < 100">
+  <div class="progress-bar" [style.width.%]="updateProgress"></div>
+</div>
+
 <form class="grid !p-4">
   <mat-form-field appearance="outline">
     <mat-label>Input Title</mat-label>

@@ -40,7 +40,6 @@
   }
 }
 
-
 /*default size*/
 .card-1-size {
   width: 280px !important;
@@ -51,6 +50,12 @@
 .card-2-size {
   height: 160px !important;
   width: 280px !important;
+}
+
+.progress-bar {
+  height: 5px;
+  background-color: darkseagreen;
+  border-radius: 80%;
 }
 
 

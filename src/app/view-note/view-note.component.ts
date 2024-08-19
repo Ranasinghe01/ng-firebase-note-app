@@ -37,6 +37,7 @@ export class ViewNoteComponent implements OnInit{
 
   taskId: string | null = null;
   task: Task | undefined;
+  progress = 0;
 
   constructor(private authService: AuthService,
               private route: ActivatedRoute,
@@ -60,17 +61,32 @@ export class ViewNoteComponent implements OnInit{
   }
 
   private loadTask(taskId: string): void {
+    this.progress = 2;   // Start with an initial progress value
       const userEmail = this.authService.getPrinciple()?.email;
       if (userEmail) {
         this.taskService.getTaskById(userEmail, taskId)
           .subscribe({
             next: (task) => {
-              this.task = task;
+              if (task) {
+                this.progress = 100;    // Set progress to 100% when task is loaded
+                this.task = task;
+              }else {
+                this.progress = 0;    // Reset progress if no task is found
+                console.log("Task not found");
+              }
             },
             error: (error) => {
-              console.error("Error loading task:", error);
+              console.log("Error loading task:", error);
             }
           });
+        // Simulate progress increase over time until the task is loaded
+        const calProgress = setInterval(() => {
+          if (this.progress < 99) {
+            this.progress += 1;
+          }else {
+            clearInterval(calProgress);   // Stop the simulation once it gets close to 100%
+          }
+        }, 10);
       }
   }
 }

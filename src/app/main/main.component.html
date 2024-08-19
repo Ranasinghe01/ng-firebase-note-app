@@ -1,3 +1,7 @@
+<div *ngIf="taskService.dProgress > 0 && taskService.dProgress < 100">
+  <div class="progress-bar" [style.width.%]="taskService.dProgress"></div>
+</div>
+
 <app-bar />
 
 <div class="flex p-6 gap-5 items-center flex-wrap ">
@@ -29,7 +33,7 @@
           <mat-chip class="!w-[50px] !h-[36px]">
             <mat-icon fontIcon="border_color"
                       class="text-gray-600 pt-2"
-                      (click)="onEditClick(task._id)"/>
+                      (click)="onEditClick(task._id)" />
           </mat-chip>
           <mat-chip class="!w-[50px] !h-[36px]">
             <mat-icon fontIcon="delete"

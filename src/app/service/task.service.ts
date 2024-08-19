@@ -25,6 +25,7 @@ export type Task = {
 export class TaskService {
 
   private readonly taskCollectionRef;
+  dProgress = 0;
 
   constructor(private FireStore: Firestore) {
     this.taskCollectionRef = collection(FireStore, "note");
@@ -66,8 +67,19 @@ export class TaskService {
   }
 
   async removeTask(task: Task) {
+    this.dProgress = 2;
+
+    const deleteProgress = setInterval(() => {
+      if (this.dProgress < 99) {
+        this.dProgress += 1;
+      }else {
+        clearInterval(deleteProgress);
+      }
+    });
+
     const docRef = doc(this.taskCollectionRef, task._id);
     await deleteDoc(docRef);
+    this.dProgress = 100;
   }
 
   async updateTask(taskId: string, title: string, content: string) {
