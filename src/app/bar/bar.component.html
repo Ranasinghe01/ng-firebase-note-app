@@ -1,5 +1,5 @@
 <header class="flex justify-between p-2 h-[50px] border-0
-    border-b border-solid border-b-gray-300 text-center">
+    border-b border-solid border-b-gray-300 text-center bg-emerald-50">
   <div class="flex items-center gap-2">
     <mat-icon class="text-emerald-500 text-5xl !w-[45px] !h-[45px]"
               fontIcon="description"/>
@@ -12,9 +12,9 @@
   </div>
 </header>
 <div *ngIf="isMenuVisible" (click)="$event.stopPropagation()"
-     class="border border-solid border-gray-300
+     class="border border-solid border-gray-300 rounded
       flex flex-col w-[250px] rounded-b p-2 gap-4
-      text-center fixed right-0">
+      text-center fixed z-10 right-0 bg-gray-100">
   <div>
     <strong> {{ authService.getPrinciple()?.displayName }} </strong>
     <div>{{ authService.getPrincipalEmail() }}</div>
